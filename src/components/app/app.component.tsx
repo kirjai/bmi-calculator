@@ -31,7 +31,7 @@ export class App {
     return (
       <div class="container">
         <h1>Body mass index (BMI)</h1>
-        <p>A measure of of body fat in adults</p>
+        <p>A measure of body fat in adults</p>
 
         {this.appState === AppState.Form ? <bmi-form /> : null}
 
