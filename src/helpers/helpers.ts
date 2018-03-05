@@ -6,7 +6,7 @@ interface Range {
 
 const ranges: Array<Range> = [
   {
-    upper: 100,
+    upper: 999,
     lower: 30,
     name: 'Obese',
   },

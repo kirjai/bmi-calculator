@@ -56,8 +56,13 @@ button {
   padding: 10px 25px;
   border-radius: 30px;
   cursor: pointer;
+  transition: transform 0.3s;
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
   }
 }
