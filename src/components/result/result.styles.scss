@@ -1,0 +1,19 @@
+.circle-container {
+  position: absolute;
+  font-size: 4rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .secondary-text {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+.result {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: lighter;
+}

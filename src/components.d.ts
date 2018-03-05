@@ -48,4 +48,64 @@ declare global {
   }
 }
 
+
+import {
+  BmiForm as BmiForm
+} from './components/bmi-form/bmi-form.component';
+
+declare global {
+  interface HTMLBmiFormElement extends BmiForm, HTMLStencilElement {
+  }
+  var HTMLBmiFormElement: {
+    prototype: HTMLBmiFormElement;
+    new (): HTMLBmiFormElement;
+  };
+  interface HTMLElementTagNameMap {
+    "bmi-form": HTMLBmiFormElement;
+  }
+  interface ElementTagNameMap {
+    "bmi-form": HTMLBmiFormElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "bmi-form": JSXElements.BmiFormAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface BmiFormAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  Result as BmiResult
+} from './components/result/result.component';
+
+declare global {
+  interface HTMLBmiResultElement extends BmiResult, HTMLStencilElement {
+  }
+  var HTMLBmiResultElement: {
+    prototype: HTMLBmiResultElement;
+    new (): HTMLBmiResultElement;
+  };
+  interface HTMLElementTagNameMap {
+    "bmi-result": HTMLBmiResultElement;
+  }
+  interface ElementTagNameMap {
+    "bmi-result": HTMLBmiResultElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "bmi-result": JSXElements.BmiResultAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface BmiResultAttributes extends HTMLAttributes {
+      bmi?: number;
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
