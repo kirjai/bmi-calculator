@@ -4,7 +4,7 @@ Little practice app - BMI calculator PWA written in Stencil. Supports being inst
 
 ![Demo](https://media.giphy.com/media/Ym5U0AvPW0pgefTP19/giphy.gif)
 
-[Live demo](https://www-hzdnrsdocu.now.sh/)
+[Live demo](https://www-jvktpeglfs.now.sh/)
 
 # TODO
 
