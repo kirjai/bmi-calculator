@@ -48,7 +48,9 @@ export class Result {
 
         <p class="result">{range.name}</p>
 
-        <button onClick={() => this.backToForm.emit()}>Back</button>
+        <button class="main-button" onClick={() => this.backToForm.emit()}>
+          Back
+        </button>
       </div>
     );
   }

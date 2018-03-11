@@ -14,7 +14,7 @@ p {
 }
 
 form {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .button-container {
@@ -31,6 +31,7 @@ label {
   text-transform: uppercase;
   font-size: 0.8rem;
   margin: 25px 0;
+  display: block;
 }
 
 input {
@@ -61,8 +62,28 @@ button {
   &:disabled {
     cursor: not-allowed;
   }
+}
 
+.main-button {
   &:hover:not(:disabled) {
     transform: scale(1.05);
+  }
+}
+
+.form-container {
+  margin-top: 50px;
+}
+
+form {
+  &.imperial {
+    .height {
+      display: inline-block;
+      width: 45%;
+    }
+
+    .height-container {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

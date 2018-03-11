@@ -1,5 +1,5 @@
 import { Component, Listen, State } from '@stencil/core';
-import { FormValues } from '../bmi-form/bmi-form.component';
+import { FormSubmitEvent } from '../bmi-form/bmi-form.component';
 import { calculateBMI } from '../../helpers/helpers';
 
 enum AppState {
@@ -16,7 +16,7 @@ export class App {
   @State() bmi: number;
 
   @Listen('bmiFormSubmitted')
-  calculate(event: CustomEvent<FormValues>) {
+  calculate(event: CustomEvent<FormSubmitEvent>) {
     const { weight, height } = event.detail;
     this.bmi = calculateBMI(Number(weight), Number(height));
     this.appState = AppState.Result;

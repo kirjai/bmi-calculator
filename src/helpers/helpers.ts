@@ -38,3 +38,14 @@ export const calculateBMI = (weight: number, height: number): number =>
  */
 export const getRange = (bmi: number): Range =>
   ranges.find(({ upper, lower }) => bmi <= upper && bmi >= lower)!;
+
+/**
+ * Converts lbs to kg
+ */
+export const lbsToKg = (lbs: number): number => lbs * 0.45359237;
+
+/**
+ * Converts feet + inches to cm
+ */
+export const feetToCm = (feet: number, inches: number): number =>
+  feet * 30.48 + inches * 2.54;
