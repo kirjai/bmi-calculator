@@ -7,6 +7,10 @@ import { getRange } from '../../helpers/helpers';
 })
 export class Result {
   @Prop() bmi: number;
+  /**
+   * Difference in original and new BMI
+   */
+  @Prop() difference: number | undefined;
   @Event() backToForm: EventEmitter<void>;
 
   render() {
@@ -22,6 +26,12 @@ export class Result {
           <div class="circle-container">
             <p class="number">{bmi.toFixed(1)}</p>
             <p class="secondary-text">BMI</p>
+            {this.difference ? (
+              <p class="secondary-text">
+                {this.difference > 0 ? '+' : null}
+                {this.difference.toFixed(1)}
+              </p>
+            ) : null}
           </div>
           <svg width="100%" height="270px" transform="rotate(-90)">
             <circle

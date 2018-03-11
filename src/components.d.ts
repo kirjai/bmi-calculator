@@ -104,6 +104,7 @@ declare global {
   namespace JSXElements {
     export interface BmiResultAttributes extends HTMLAttributes {
       bmi?: number;
+      difference?: number | undefined;
     }
   }
 }

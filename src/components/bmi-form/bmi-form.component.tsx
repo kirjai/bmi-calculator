@@ -2,11 +2,15 @@ import { Component, State, Event, EventEmitter, Listen } from '@stencil/core';
 import { lbsToKg, feetToCm } from '../../helpers/helpers';
 
 export interface FormSubmitEvent {
-  weight: string;
-  height: string;
+  weight: number;
+  height: number;
+  originalWeight: number;
 }
 
-interface FormValues extends FormSubmitEvent {
+interface FormValues {
+  weight: string;
+  height: string;
+  originalWeight: string;
   inches: string;
 }
 
@@ -40,6 +44,7 @@ export class BmiForm {
   formValues: FormValues = {
     weight: '',
     height: '',
+    originalWeight: '',
     inches: '',
   };
   @State() units = Units.Metric;
@@ -88,6 +93,15 @@ export class BmiForm {
               />
             ) : null}
           </div>
+          <label>
+            Original weight ({selectedUnitOptions.weight}) (optional)
+            <input
+              type="number"
+              placeholder={selectedUnitOptions.weightPlaceholder}
+              value={this.formValues.originalWeight}
+              onInput={this.valueChangeHandler('originalWeight')}
+            />
+          </label>
           <div class="button-container">
             <button
               class="main-button"
@@ -111,12 +125,17 @@ export class BmiForm {
 
   private submit = (event: Event) => {
     event.preventDefault();
-    const { weight, height, inches } = this.formValues;
-    let values: FormSubmitEvent = { weight, height };
+    const { weight, height, inches, originalWeight } = this.formValues;
+    let values: FormSubmitEvent = {
+      weight: Number(weight),
+      height: Number(height),
+      originalWeight: Number(originalWeight),
+    };
     if (this.units === Units.Imperial) {
       values = {
-        weight: String(lbsToKg(Number(weight))),
-        height: String(feetToCm(Number(height), Number(inches))),
+        weight: lbsToKg(Number(weight)),
+        height: feetToCm(Number(height), Number(inches)),
+        originalWeight: lbsToKg(Number(originalWeight)),
       };
     }
     this.bmiFormSubmitted.emit(values);

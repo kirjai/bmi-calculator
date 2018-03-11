@@ -14,11 +14,16 @@ enum AppState {
 export class App {
   @State() appState = AppState.Form;
   @State() bmi: number;
+  @State() difference: number;
 
   @Listen('bmiFormSubmitted')
   calculate(event: CustomEvent<FormSubmitEvent>) {
-    const { weight, height } = event.detail;
-    this.bmi = calculateBMI(Number(weight), Number(height));
+    const { weight, height, originalWeight } = event.detail;
+    this.bmi = calculateBMI(weight, height);
+    if (originalWeight) {
+      const originalWeightBMI = calculateBMI(originalWeight, height);
+      this.difference = this.bmi - originalWeightBMI;
+    }
     this.appState = AppState.Result;
   }
 
@@ -36,7 +41,7 @@ export class App {
         {this.appState === AppState.Form ? <bmi-form /> : null}
 
         {this.appState === AppState.Result ? (
-          <bmi-result bmi={this.bmi} />
+          <bmi-result bmi={this.bmi} difference={this.difference} />
         ) : null}
       </div>
     );
