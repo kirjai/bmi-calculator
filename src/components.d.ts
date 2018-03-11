@@ -108,4 +108,35 @@ declare global {
   }
 }
 
+
+import {
+  Toggle as BmiToggle
+} from './components/toggle/toggle.component';
+
+declare global {
+  interface HTMLBmiToggleElement extends BmiToggle, HTMLStencilElement {
+  }
+  var HTMLBmiToggleElement: {
+    prototype: HTMLBmiToggleElement;
+    new (): HTMLBmiToggleElement;
+  };
+  interface HTMLElementTagNameMap {
+    "bmi-toggle": HTMLBmiToggleElement;
+  }
+  interface ElementTagNameMap {
+    "bmi-toggle": HTMLBmiToggleElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "bmi-toggle": JSXElements.BmiToggleAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface BmiToggleAttributes extends HTMLAttributes {
+      active?: string;
+      options?: string[];
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
